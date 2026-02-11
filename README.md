@@ -148,7 +148,7 @@ Core files:
 
 ---
 
-## 🗺 Project Plan
+## Project Plan
 
 ### Phase 1 — Core Resource
 - Add primary resource (e.g., Task or Order)

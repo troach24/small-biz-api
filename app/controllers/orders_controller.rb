@@ -28,6 +28,10 @@ class OrdersController < ApplicationController
   # POST /orders/:id/sync
   # Enqueues a Sidekiq job and returns immediately.
   def sync
+    if order.sync_status == "synced"
+      return render json: { message: "already_synced" }, status: :ok
+    end
+    
     order.update!(sync_status: "pending", last_sync_error: nil)
     SyncOrderJob.perform_later(order.id)
 

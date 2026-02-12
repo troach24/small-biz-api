@@ -3,9 +3,11 @@ class SyncOrderJob < ApplicationJob
 
   def perform(order_id)
     order = Order.find(order_id)
-
+    
     return if order.sync_status == "synced"
-
+    
+    Rails.logger.info "Syncing Order ##{order.id}"
+    
     order.update!(
       sync_status: "syncing",
       last_sync_error: nil

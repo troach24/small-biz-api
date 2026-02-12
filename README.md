@@ -151,8 +151,8 @@ Core files:
 ## Project Plan
 
 ### Phase 1 — Core Resource
-- Add primary resource (e.g., Task or Order)
-- Add validations
+- ✔︎ Add primary resource (Order)
+- ✔︎ Add validations
 - Add database indexes and constraints
 
 ### Phase 2 — Background Processing
@@ -175,3 +175,12 @@ Provide a production-style backend template suitable for:
 - Small business workflows
 - Background job processing
 - Backend engineering interview preparation
+
+## Features
+### Orders + Async Sync
+
+- CRUD endpoints for Orders
+- POST /orders/:id/sync enqueues a background job
+- Uses Sidekiq + Redis
+- Integration logic isolated in service object (External::OrderSyncer)
+

@@ -10,8 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 0) do
+ActiveRecord::Schema[8.1].define(version: 2026_02_12_034835) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
+  create_table "orders", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.string "currency"
+    t.string "customer_name"
+    t.string "external_id"
+    t.text "last_sync_error"
+    t.datetime "last_synced_at"
+    t.string "status"
+    t.string "sync_status"
+    t.integer "total_cents"
+    t.datetime "updated_at", null: false
+  end
 end

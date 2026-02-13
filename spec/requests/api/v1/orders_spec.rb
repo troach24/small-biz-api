@@ -47,4 +47,17 @@ RSpec.describe "POST /api/v1/orders/:id/sync" do
 
     expect(response).to have_http_status(:ok)
   end
+
+  it "performs the sync job and updates the order" do
+    perform_enqueued_jobs do
+      post "/api/v1/orders/#{order.id}/sync"
+      expect(response).to have_http_status(:accepted)
+    end
+
+    order.reload
+    expect(order.sync_status).to eq("synced")
+    expect(order.external_id).to be_present
+    expect(order.last_synced_at).to be_present
+    expect(order.last_sync_error).to be_nil
+  end
 end

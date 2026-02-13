@@ -11,15 +11,6 @@ This project serves as a clean backend foundation for background job processing 
 
 ---
 
-## Tech Stack
-
-- **Rails (API-only)**
-- **Postgres** — primary database
-- **Redis** — job queue datastore
-- **Sidekiq** — background job processor
-
----
-
 ## 🛠 Development Setup
 
 ### 1. Install dependencies
@@ -172,9 +163,9 @@ Core files:
 
 Provide a production-style backend template suitable for:
 
-- Small business workflows
+- Learn Ruby on Rails
+- Build lightweight small business workflows
 - Background job processing
-- Backend engineering interview preparation
 
 ## Features
 ### Orders + Async Sync

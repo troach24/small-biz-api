@@ -179,7 +179,7 @@ Provide a production-style backend template suitable for:
 ## Features
 ### Orders + Async Sync
 
-“All endpoints are versioned under /api/v1.”
+**All endpoints are versioned under /api/v1**
 - CRUD endpoints for Orders
 - POST /orders/:id/sync enqueues a background job
 - Uses Sidekiq + Redis

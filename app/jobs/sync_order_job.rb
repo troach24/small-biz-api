@@ -7,7 +7,7 @@ class SyncOrderJob < ApplicationJob
     return if order.sync_status == "synced"
     
     Rails.logger.info "Syncing Order ##{order.id}"
-    
+
     order.update!(
       sync_status: "syncing",
       last_sync_error: nil
@@ -18,8 +18,7 @@ class SyncOrderJob < ApplicationJob
     order.update!(
       sync_status: "synced",
       external_id: result.fetch(:external_id),
-      last_synced_at: Time.current,
-      last_sync_error: nil
+      last_synced_at: Time.current
     )
   rescue => e
     # keep it simple for now; Sidekiq retries automatically

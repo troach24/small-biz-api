@@ -153,10 +153,10 @@ Core files:
 ### Phase 1 — Core Resource
 - ✔︎ Add primary resource (Order)
 - ✔︎ Add validations
-- Add database indexes and constraints
+- ✔︎ Add database indexes and constraints
 
 ### Phase 2 — Background Processing
-- Implement idempotent jobs
+- ✔︎ Implement idempotent jobs
 - Configure retry strategies
 - Add failure handling
 

@@ -43,5 +43,9 @@ module SmallBizApi
 
     config.active_job.queue_adapter = :sidekiq
 
+    if Rails.env.development?
+      config.middleware.use ActionDispatch::Cookies
+      config.middleware.use ActionDispatch::Session::CookieStore, key: "_small_biz_api_session"
+    end
   end
 end

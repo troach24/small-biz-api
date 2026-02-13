@@ -11,11 +11,6 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => "/sidekiq"
   end
 
-  # Legacy (unversioned)
-  resources :orders, only: %i[index show create update] do
-    post :sync, on: :member
-  end
-
   # Versioned API
   namespace :api do
     namespace :v1 do
